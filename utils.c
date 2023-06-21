@@ -39,6 +39,7 @@ void (*get_op_func(char *opcode))(stack_t **stack, uint line_number)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 		};
 

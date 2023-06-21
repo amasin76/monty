@@ -41,3 +41,22 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", c);
 }
+
+/**
+ * pstr - prints the string starting at the top of the stack
+ * @stack: pointer to the head of the stack
+ * @line_number: line number of the command being run
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	(void)line_number;
+	temp = *stack;
+	while (temp != NULL && temp->n > 0 && temp->n <= 127)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
+}
