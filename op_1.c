@@ -71,3 +71,27 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	free(temp);
 }
+
+/**
+ * add - adds the top two elements of the stack
+ * @stack: pointer to the head of the stack
+ * @line_number: line number of the instruction
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	int sum;
+	stack_t *temp;
+
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	sum = (*stack)->n + (*stack)->next->n;
+	temp = *stack;
+	*stack = (*stack)->next;
+	(*stack)->n = sum;
+
+	free(temp);
+}
