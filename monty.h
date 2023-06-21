@@ -74,6 +74,7 @@ void sub(stack_t **stack, uint line_number);
 void _div(stack_t **stack, uint line_number);
 void mul(stack_t **stack, uint line_number);
 void mod(stack_t **stack, uint line_number);
+void pchar(stack_t **stack, uint line_number);
 
 /* utils.c */
 int is_number(char *str);
