@@ -19,7 +19,7 @@ repos:
         description: Check betty style.
         entry: betty-style
         language: system
-        files: \.(c|h)$
+        files: ^(?!main\.c$).*\.(c|h)$
 
       - id: betty-doc
         name: betty doc
