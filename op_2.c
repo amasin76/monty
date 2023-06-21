@@ -35,18 +35,18 @@ void sub(stack_t **stack, uint line_number)
 }
 
 /**
- * div - divides the second top element of the stack from the top element
+ * _div - divides the second top element of the stack from the top element
  * @stack: pointer to the head of the stack
  * @line_number: line number of the command being run
  */
-void div(stack_t **stack, uint line_number)
+void _div(stack_t **stack, uint line_number)
 {
 	int quotient;
 	stack_t *temp;
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't _div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)

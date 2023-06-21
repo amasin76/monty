@@ -70,7 +70,7 @@ void pop(stack_t **stack, uint line_number);
 void add(stack_t **stack, uint line_number);
 void nop(stack_t **stack, uint line_number);
 void sub(stack_t **stack, uint line_number);
-void div(stack_t **stack, uint line_number);
+void _div(stack_t **stack, uint line_number);
 void mul(stack_t **stack, uint line_number);
 void mod(stack_t **stack, uint line_number);
 
