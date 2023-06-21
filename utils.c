@@ -31,6 +31,7 @@ void (*get_op_func(char *opcode))(stack_t **stack, uint line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
