@@ -30,6 +30,7 @@ void (*get_op_func(char *opcode))(stack_t **stack, uint line_number)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}};
 
 	for (i = 0; opcodes[i].opcode != NULL; i++)
