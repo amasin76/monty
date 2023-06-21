@@ -32,7 +32,13 @@ void (*get_op_func(char *opcode))(stack_t **stack, uint line_number)
 		{"pint", pint},
 		{"pop", pop},
 		{"add", add},
-		{NULL, NULL}};
+		{"nop", nop},
+		{"sub", sub},
+		{"div", div},
+		{"mul", mul},
+		{"mod", mod},
+		{NULL, NULL}
+		};
 
 	for (i = 0; opcodes[i].opcode != NULL; i++)
 	{
@@ -51,8 +57,10 @@ void parse_line(void)
 	void (*op_func)(stack_t **stack, uint line_number);
 
 	opcode = strtok(data.line, " \n\t");
+
 	if (opcode == NULL || opcode[0] == '#')
 		return;
+
 	op_func = get_op_func(opcode);
 	if (op_func == NULL)
 	{

@@ -41,7 +41,7 @@ void pall(stack_t **stack, uint line_number)
 /**
  * pint - prints the value at the top of the stack
  * @stack: pointer to the head of the stack
- * @line_number: line number of the command in the file
+ * @line_number: line number of the command being run
  */
 void pint(stack_t **stack, uint line_number)
 {
@@ -56,9 +56,9 @@ void pint(stack_t **stack, uint line_number)
 /**
  * pop - removes the top element of the stack
  * @stack: pointer to the head of the stack
- * @line_number: line number of the instruction
+ * @line_number: line number of the command being run
  */
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, uint line_number)
 {
 	stack_t *temp;
 
@@ -75,9 +75,9 @@ void pop(stack_t **stack, unsigned int line_number)
 /**
  * add - adds the top two elements of the stack
  * @stack: pointer to the head of the stack
- * @line_number: line number of the instruction
+ * @line_number: line number of the command being run
  */
-void add(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, uint line_number)
 {
 	int sum;
 	stack_t *temp;
