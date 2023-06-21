@@ -62,13 +62,18 @@ typedef struct global_s
 
 extern global_t data;
 
-/* function prototypes */
+/* op_1.c */
 void push(stack_t **stack, uint line_number);
 void pall(stack_t **stack, uint line_number);
+void pint(stack_t **stack, uint line_number);
+
+/* utils.c */
 int is_number(char *str);
-stack_t *add_node(stack_t **head, const int n);
-void free_stack(stack_t **head);
 void (*get_op_func(char *opcode))(stack_t **stack, uint line_number);
 void parse_line(void);
+
+/* utils_node.c */
+stack_t *add_node(stack_t **head, const int n);
+void free_stack(stack_t **head);
 
 #endif /* MONTY_H */
