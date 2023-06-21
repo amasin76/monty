@@ -6,6 +6,14 @@ The interpreter supports a variety of opcodes, including `push`, `pint`, `pop`, 
 
 The interpreter is designed to be robust and handle various edge cases, such as empty stacks and division by zero. It prints informative error messages and exits with the appropriate status code when it encounters an error.
 
-To use the interpreter, compile the source code and run the resulting executable with the name of a Monty bytecode file as an argument. The interpreter will read and execute the opcodes in the bytecode file, manipulating the stack and printing output as specified by the opcodes.
+## usage
+1- compile
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+```
+2- run
+```bash
+./monty <file>
+```
 
 This project was created as part of the ALX curriculum.
