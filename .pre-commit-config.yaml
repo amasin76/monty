@@ -1,0 +1,29 @@
+repos:
+  # Standard hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: end-of-file-fixer
+        files: \.(c|h)$
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: betty-style
+        name: betty style
+        description: Check betty style.
+        entry: betty-style
+        language: system
+        files: \.(c|h)$
+
+      - id: betty-doc
+        name: betty doc
+        description: Check betty doc.
+        entry: betty-doc
+        language: system
+        files: \.(c|h)$
