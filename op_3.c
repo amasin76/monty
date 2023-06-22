@@ -5,7 +5,7 @@
  * @stack: pointer to the head of the stack
  * @line_number: line number of the command being run
  */
-void swap(stack_t **stack, unsigned int line_number)
+void swap(stack_t **stack, uint line_number)
 {
 	int temp;
 
@@ -24,7 +24,7 @@ void swap(stack_t **stack, unsigned int line_number)
  * @stack: pointer to the head of the stack
  * @line_number: line number of the command being run
  */
-void pchar(stack_t **stack, unsigned int line_number)
+void pchar(stack_t **stack, uint line_number)
 {
 	int c;
 
@@ -47,7 +47,7 @@ void pchar(stack_t **stack, unsigned int line_number)
  * @stack: pointer to the head of the stack
  * @line_number: line number of the command being run
  */
-void pstr(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, uint line_number)
 {
 	stack_t *temp;
 
@@ -59,4 +59,32 @@ void pstr(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 	printf("\n");
+}
+
+/**
+ * rotl - Rotates the stack to the left
+ * @stack: pointer to the head of the stack
+ * @line_number: line number of the command being run (unused)
+ */
+void rotl(stack_t **stack, uint line_number)
+{
+	stack_t *temp, *last;
+
+	(void)(line_number);
+
+	if (!*stack || !(*stack)->next)
+		return;
+
+	temp = *stack;
+	last = *stack;
+
+	while (last->next)
+		last = last->next;
+
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+
+	temp->next = NULL;
+	temp->prev = last;
+	last->next = temp;
 }

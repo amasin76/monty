@@ -40,6 +40,7 @@ void (*get_op_func(char *opcode))(stack_t **stack, uint line_number)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 		};
 
