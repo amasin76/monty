@@ -88,3 +88,26 @@ void rotl(stack_t **stack, uint line_number)
 	temp->prev = last;
 	last->next = temp;
 }
+
+/**
+ * rotr - Rotates the stack to the right
+ * @stack: pointer to the head of the stack
+ * @line_number: line number of the command being run (unused)
+ */
+void rotr(stack_t **stack, uint line_number)
+{
+	stack_t *temp, *last;
+
+	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	temp = *stack;
+	last = *stack;
+	while (last->next != NULL)
+		last = last->next;
+	last->prev->next = NULL;
+	last->prev = NULL;
+	temp->prev = last;
+	last->next = temp;
+	*stack = last;
+}
