@@ -17,7 +17,11 @@ void push(stack_t **stack, uint line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(arg);
-	add_node(stack, n);
+
+	if (data.format == STACK)
+		add_node(stack, n);
+	else
+		add_node_end(stack, n);
 }
 
 /**

@@ -40,6 +40,19 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
+ * enum format_e - Format of the data
+ * @STACK: Stack (LIFO) format
+ * @QUEUE: Queue (FIFO) format
+ *
+ * Format of the data for the Monty bytecode interpreter
+ */
+typedef enum format_e
+{
+	STACK,
+	QUEUE
+} format_t;
+
+/**
  * struct global_s - global variables for Monty interpreter
  * @fp: file pointer to Monty bytecode file
  * @line: line buffer for getline
@@ -47,6 +60,7 @@ typedef struct instruction_s
  * @nread: number of characters read by getline
  * @line_number: current line number in Monty bytecode file
  * @stack: pointer to top of stack
+ * @format: Format of the data (stack or queue)
  *
  * Description: global variables for Monty interpreter
  */
@@ -58,6 +72,7 @@ typedef struct global_s
 	ssize_t nread;
 	uint line_number;
 	stack_t *stack;
+	format_t format;
 } global_t;
 
 extern global_t data;
@@ -67,16 +82,22 @@ void push(stack_t **stack, uint line_number);
 void pall(stack_t **stack, uint line_number);
 void pint(stack_t **stack, uint line_number);
 void pop(stack_t **stack, uint line_number);
-void swap(stack_t **stack, uint line_number);
 void add(stack_t **stack, uint line_number);
+/* op_2.c */
 void nop(stack_t **stack, uint line_number);
 void sub(stack_t **stack, uint line_number);
 void _div(stack_t **stack, uint line_number);
 void mul(stack_t **stack, uint line_number);
 void mod(stack_t **stack, uint line_number);
+/* op_3.c */
+void swap(stack_t **stack, uint line_number);
 void pchar(stack_t **stack, uint line_number);
 void pstr(stack_t **stack, uint line_number);
 void rotl(stack_t **stack, uint line_number);
+void rotr(stack_t **stack, uint line_number);
+/* op_mode.c */
+void stack(stack_t **stack, uint line_number);
+void queue(stack_t **stack, uint line_number);
 
 /* utils.c */
 int is_number(char *str);
@@ -86,5 +107,6 @@ void parse_line(void);
 /* utils_node.c */
 stack_t *add_node(stack_t **head, const int n);
 void free_stack(stack_t **head);
+stack_t *add_node_end(stack_t **head, const int n);
 
 #endif /* MONTY_H */
